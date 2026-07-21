@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Lenis from "lenis";
+
 import Hero from './components/Hero';
 import Quote from './components/Quote';
 import Events from './components/Events';
@@ -12,6 +14,28 @@ import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
 
 const App = () => {
+  useEffect(() => {
+    // Inicializace plynulého scrollování
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+  
   return (
       <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-black font-sans antialiased overflow-x-hidden">
         {/* <Nav/> */}
