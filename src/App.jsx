@@ -9,7 +9,7 @@ import AboutMe from './components/AboutMe';
 // import Nav from './components/Nav';
 // import Services from './components/Services';
 // import Contact from './components/Contact';
-// import Footer from './components/Footer';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const App = () => {
         <BookingForm/>
         {/* <Services/> */}
         {/* <Contact/> */}
-        {/* <Footer/> */}
+        <Footer/>
       </main>
   );
 };
