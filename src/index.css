@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Čisté CSS animace pro ambientní světla v Hero sekci.
-   Běží na compositor vlákně (GPU), takže se netrhají
-   společně se scrollem – na rozdíl od JS-řízených
-   (framer-motion) animací na hlavním vlákně. */
+/* 1. GLOBÁLNÍ SKROLOVÁNÍ: Úplně čisté, bez umělého CSS smoothingu.
+      Běžné kolečko myši teď bude dokonale plynulé podle systému uživatele. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Čisté CSS animace pro ambientní světla (Ponecháno, jsou super) --- */
 @keyframes ambient-pulse-a {
     0%, 100% { opacity: 0.2; }
     50% { opacity: 0.45; }
@@ -18,8 +21,10 @@
 
 .animate-ambient-a {
     animation: ambient-pulse-a 6s ease-in-out infinite;
+    will-change: opacity;
 }
 
 .animate-ambient-b {
     animation: ambient-pulse-b 7s ease-in-out infinite 1s;
+    will-change: opacity;
 }
