@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Events = () => {
     return (
-        <section className="py-24 md:py-36 bg-zinc-950 px-4 md:px-6 border-t border-zinc-900 select-none">
+        <section id="vystoupeni" className="py-24 md:py-36 bg-zinc-950 px-4 md:px-6 border-t border-zinc-900 select-none">
             <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

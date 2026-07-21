@@ -24,7 +24,7 @@ export const BookingForm = () => {
     };
 
     return (
-        <section className="bg-zinc-950 text-white py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 relative">
+        <section id="booking" className="bg-zinc-950 text-white py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 relative">
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/5 blur-[160px] pointer-events-none rounded-full" />
 
             <motion.div 

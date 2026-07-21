@@ -40,7 +40,7 @@ export const AboutMe = () => {
     ];
 
     return (
-        <section className="py-24 md:py-36 bg-zinc-950 text-white px-4 sm:px-6 lg:px-8 overflow-hidden relative border-t border-zinc-900">
+        <section id="o-mne" className="py-24 md:py-36 bg-zinc-950 text-white px-4 sm:px-6 lg:px-8 overflow-hidden relative border-t border-zinc-900">
             {/* Světelný efekt na pozadí */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
 
