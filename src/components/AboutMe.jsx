@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const AboutMe = () => {
     const [activeTab, setActiveTab] = useState(0);
@@ -39,14 +40,19 @@ export const AboutMe = () => {
     ];
 
     return (
-        <section className="py-24 md:py-36 bg-black text-white px-4 sm:px-6 lg:px-8 overflow-hidden relative">
-            {/* Světelný efekt na pozadí (Stage Light Glow) */}
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-amber-500/10 via-purple-600/10 to-amber-500/10 blur-[120px] pointer-events-none rounded-full" />
+        <section className="py-24 md:py-36 bg-zinc-950 text-white px-4 sm:px-6 lg:px-8 overflow-hidden relative border-t border-zinc-900">
+            {/* Světelný efekt na pozadí */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-amber-500/10 via-amber-600/5 to-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
 
-            <div className="max-w-6xl mx-auto relative z-10">
-
-                {/* Header sekce */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-zinc-800 pb-8">
+            <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="max-w-6xl mx-auto relative z-10"
+            >
+                {/* Jednotný Header sekce */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-zinc-800/80 pb-8">
                     <div>
                         <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
                             // Životní příběh & Milníky
@@ -60,66 +66,68 @@ export const AboutMe = () => {
                     </p>
                 </div>
 
-                {/* Přepínač kapitol (Timeline Navigation) */}
+                {/* Přepínač kapitol */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
                     {chapters.map((chap, idx) => (
                         <button
                             key={idx}
                             onClick={() => setActiveTab(idx)}
-                            className={`p-4 rounded-xl text-left transition-all duration-300 border ${
+                            className={`p-4 rounded-2xl text-left transition-all duration-300 border backdrop-blur-sm ${
                                 activeTab === idx
-                                    ? "bg-zinc-900 border-amber-500/80 shadow-lg shadow-amber-500/5 translate-y-[-2px]"
-                                    : "bg-zinc-950/60 border-zinc-800/80 hover:border-zinc-700 text-zinc-400"
+                                    ? "bg-amber-500/10 border-amber-500 text-white shadow-lg shadow-amber-500/10 -translate-y-1"
+                                    : "bg-zinc-900/40 border-zinc-800/80 hover:border-zinc-700 text-zinc-400 hover:text-zinc-200"
                             }`}
                         >
-                            <span className={`text-xs font-mono block mb-1 ${activeTab === idx ? "text-amber-500" : "text-zinc-500"}`}>
+                            <span className={`text-xs font-mono block mb-1 ${activeTab === idx ? "text-amber-400" : "text-zinc-500"}`}>
                                 {chap.year}
                             </span>
-                            <span className={`text-sm font-bold block truncate ${activeTab === idx ? "text-white" : "text-zinc-300"}`}>
+                            <span className="text-sm font-bold block truncate">
                                 {chap.tag}
                             </span>
                         </button>
                     ))}
                 </div>
 
-                {/* Aktivní karta s příběhem (Stage Spotlight Box) */}
-                <div className="bg-gradient-to-b from-zinc-900 to-zinc-950 border border-zinc-800/80 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                {/* Aktivní karta s animovaným přechodem */}
+                <div className="bg-gradient-to-b from-zinc-900/90 to-zinc-950 border border-zinc-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden backdrop-blur-md min-h-[380px]">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, x: 15 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -15 }}
+                            transition={{ duration: 0.3 }}
+                            className="max-w-3xl relative z-10"
+                        >
+                            <span className="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold rounded-full mb-6">
+                                {chapters[activeTab].tag}
+                            </span>
 
-                    {/* Velký rok jako watermark v pozadí */}
-                    <div className="absolute -right-4 -bottom-10 text-8xl md:text-[180px] font-black text-white/[0.03] select-none pointer-events-none font-mono">
+                            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                                {chapters[activeTab].title}
+                            </h3>
+
+                            <blockquote className="text-lg md:text-xl text-amber-200/90 italic font-serif mb-6 border-l-2 border-amber-500 pl-4 py-1">
+                                {chapters[activeTab].quote}
+                            </blockquote>
+
+                            <p className="text-zinc-300 text-base md:text-lg leading-relaxed font-light mb-8">
+                                {chapters[activeTab].text}
+                            </p>
+
+                            <div className="inline-flex items-center gap-3 bg-zinc-800/60 border border-zinc-700/50 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-zinc-200">
+                                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                                {chapters[activeTab].highlight}
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {/* Watermark na pozadí */}
+                    <div className="absolute -right-4 -bottom-10 text-8xl md:text-[180px] font-black text-white/[0.02] select-none pointer-events-none font-mono">
                         {chapters[activeTab].year.split(" ")[0]}
                     </div>
-
-                    <div className="max-w-3xl relative z-10">
-                        {/* Tag */}
-                        <span className="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold rounded-full mb-6">
-                            {chapters[activeTab].tag}
-                        </span>
-
-                        {/* Nadpis Kapitoly */}
-                        <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-                            {chapters[activeTab].title}
-                        </h3>
-
-                        {/* Citát */}
-                        <blockquote className="text-lg md:text-xl text-amber-200/90 italic font-serif mb-6 border-l-2 border-amber-500 pl-4 py-1">
-                            {chapters[activeTab].quote}
-                        </blockquote>
-
-                        {/* Text */}
-                        <p className="text-zinc-300 text-base md:text-lg leading-relaxed font-light mb-8">
-                            {chapters[activeTab].text}
-                        </p>
-
-                        {/* Key Achievement Pill */}
-                        <div className="inline-flex items-center gap-3 bg-zinc-800/80 border border-zinc-700/60 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-zinc-200">
-                            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                            {chapters[activeTab].highlight}
-                        </div>
-                    </div>
                 </div>
-
-            </div>
+            </motion.div>
         </section>
     );
 };

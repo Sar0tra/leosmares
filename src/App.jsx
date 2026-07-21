@@ -13,7 +13,7 @@ import AboutMe from './components/AboutMe';
 
 const App = () => {
   return (
-      <main className="min-h-screen bg-slate-950">
+      <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-amber-500 selection:text-black font-sans antialiased overflow-x-hidden">
         {/* <Nav/> */}
         <Hero/>
         <Quote/>
