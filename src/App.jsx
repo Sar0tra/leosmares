@@ -5,6 +5,7 @@ import Events from './components/Events';
 import AudioHub from './components/AudioHub';
 import BookingForm from './components/BookingForm';
 import InstagramFeed from './components/InstagramFeed';
+import AboutMe from './components/AboutMe';
 // import Nav from './components/Nav';
 // import Services from './components/Services';
 // import Contact from './components/Contact';
@@ -16,6 +17,7 @@ const App = () => {
         {/* <Nav/> */}
         <Hero/>
         <Quote/>
+        <AboutMe/>
         <Events/>
         <AudioHub/>
         <InstagramFeed/>
