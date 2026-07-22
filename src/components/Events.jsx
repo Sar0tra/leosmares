@@ -15,7 +15,7 @@ const Events = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-zinc-800/80 pb-8">
                     <div>
                         <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
-                            // Živá Vystoupení
+                            {"// Živá Vystoupení"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-black text-zinc-100 tracking-tight uppercase italic mt-1">
                             Koncerty<span className="text-amber-500">.</span>

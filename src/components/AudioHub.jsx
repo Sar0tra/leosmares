@@ -14,7 +14,7 @@ export const AudioHub = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-zinc-800/80 pb-8">
                     <div>
                         <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
-                            // Spotify & Podcasty
+                            {"// Spotify & Podcasty"}
                         </span>
                         <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-1 uppercase italic">
                             Audio Hub<span className="text-amber-500">.</span>

@@ -36,7 +36,7 @@ export const BookingForm = () => {
             >
                 <div className="text-center mb-12">
                     <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
-                        // B2B Booking & Spolupráce
+                        {"// B2B Booking & Spolupráce"}
                     </span>
                     <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-2 uppercase italic">
                         Rezervace Akce<span className="text-amber-500">.</span>

@@ -56,7 +56,7 @@ const Footer = () => (
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-12 border-b border-white/10">
                 <div>
                     <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
-                        // Díky, že jste dorazili až sem
+                        {"// Díky, že jste dorazili až sem"}
                     </span>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight mt-2 text-white uppercase italic">
                         Sledujte, co se chystá<span className="text-amber-500">.</span>

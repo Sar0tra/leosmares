@@ -55,7 +55,7 @@ export const AboutMe = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-zinc-800/80 pb-8">
                     <div>
                         <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
-                            // Životní příběh & Milníky
+                            {"// Životní příběh & Milníky"}
                         </span>
                         <h2 className="text-4xl sm:text-6xl font-black tracking-tight mt-2 uppercase italic">
                             O mně<span className="text-amber-500">.</span>
