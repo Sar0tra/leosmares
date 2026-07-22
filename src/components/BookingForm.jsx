@@ -24,8 +24,8 @@ export const BookingForm = () => {
     };
 
     return (
-        <section id="booking" className="bg-zinc-950 text-white py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 relative">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/5 blur-[160px] pointer-events-none rounded-full" />
+        <section id="booking" className="bg-zinc-950 text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-zinc-900 relative overflow-hidden">
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] sm:w-[700px] h-[200px] sm:h-[350px] bg-amber-500/5 blur-[120px] sm:blur-[160px] pointer-events-none rounded-full" />
 
             <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -34,22 +34,22 @@ export const BookingForm = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-3xl mx-auto relative z-10"
             >
-                <div className="text-center mb-12">
-                    <span className="text-amber-500 font-mono tracking-widest text-xs uppercase font-semibold">
+                <div className="text-center mb-8 sm:mb-12">
+                    <span className="text-amber-500 font-mono tracking-widest text-[10px] sm:text-xs uppercase font-semibold">
                         {"// B2B Booking & Spolupráce"}
                     </span>
-                    <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-2 uppercase italic">
+                    <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-1 sm:mt-2 uppercase italic">
                         Rezervace Akce<span className="text-amber-500">.</span>
                     </h2>
-                    <p className="mt-3 text-zinc-400 font-light text-sm sm:text-base">
+                    <p className="mt-2 sm:mt-3 text-zinc-400 font-light text-xs sm:text-base">
                         Plánujete firemní večírek, ples nebo komerční kampaň? Vyplňte formulář a náš management se s vámi spojí.
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6 bg-zinc-900/60 p-8 sm:p-10 rounded-3xl border border-zinc-800/80 shadow-2xl backdrop-blur-md">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 bg-zinc-900/60 p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-zinc-800/80 shadow-2xl backdrop-blur-md">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div>
-                            <label htmlFor="name" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="name" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 Jméno / Firma *
                             </label>
                             <input
@@ -60,12 +60,12 @@ export const BookingForm = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder="Jan Novák (Firma s.r.o.)"
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="email" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 E-mail *
                             </label>
                             <input
@@ -76,14 +76,14 @@ export const BookingForm = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="jan@firma.cz"
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div>
-                            <label htmlFor="phone" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="phone" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 Telefonní číslo *
                             </label>
                             <input
@@ -94,12 +94,12 @@ export const BookingForm = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 placeholder="+420 123 456 789"
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="type" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="type" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 Typ akce / Spolupráce
                             </label>
                             <select
@@ -107,7 +107,7 @@ export const BookingForm = () => {
                                 name="type"
                                 value={formData.type}
                                 onChange={handleChange}
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             >
                                 <option value="firemni-vecirek">Firemní večírek</option>
                                 <option value="ples">Moderování plesu / Galavečeru</option>
@@ -118,9 +118,9 @@ export const BookingForm = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div>
-                            <label htmlFor="date" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="date" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 Předběžný termín
                             </label>
                             <input
@@ -129,12 +129,12 @@ export const BookingForm = () => {
                                 name="date"
                                 value={formData.date}
                                 onChange={handleChange}
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="budget" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                            <label htmlFor="budget" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                                 Předpokládaný rozpočet
                             </label>
                             <input
@@ -144,13 +144,13 @@ export const BookingForm = () => {
                                 value={formData.budget}
                                 onChange={handleChange}
                                 placeholder="např. 100 000 - 200 000 Kč"
-                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                                className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label htmlFor="message" className="block text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">
+                        <label htmlFor="message" className="block text-[10px] sm:text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1.5 sm:mb-2">
                             Detaily akce a vaše představa *
                         </label>
                         <textarea
@@ -161,13 +161,13 @@ export const BookingForm = () => {
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Upřesněte místo konání, očekávaný počet hostů, délku vystoupení..."
-                            className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-sm"
+                            className="w-full bg-zinc-950/80 border border-zinc-800 rounded-xl px-3.5 py-3 sm:py-3.5 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all text-base sm:text-sm"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-6 rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25 transition-all transform active:scale-[0.99] text-base uppercase tracking-wide"
+                        className="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-3.5 sm:py-4 px-6 rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25 transition-all transform active:scale-[0.99] text-sm sm:text-base uppercase tracking-wide"
                     >
                         Odeslat nezávaznou poptávku
                     </button>
