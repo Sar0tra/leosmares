@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Lenis from "lenis";
+import { Analytics } from "@vercel/analytics/react"
 
 import Hero from './components/Hero';
 import Quote from './components/Quote';
@@ -49,6 +50,7 @@ const App = () => {
         {/* <Services/> */}
         {/* <Contact/> */}
         <Footer/>
+        <Analytics/>
       </main>
   );
 };
